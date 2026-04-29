@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="NotificationsApp.csproj" />
+  <Project Path="..\NotificationsApp.Tests\NotificationsApp.Tests.csproj" />
+</Solution>

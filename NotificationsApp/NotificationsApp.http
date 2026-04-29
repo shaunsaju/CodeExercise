@@ -1,0 +1,41 @@
+@NotificationsApp_HostAddress = http://localhost:5078
+
+### Send an info-level notification (will NOT be forwarded)
+POST {{NotificationsApp_HostAddress}}/api/notifications
+Content-Type: application/json
+
+{
+  "title": "Deployment started",
+  "message": "Version 2.4.1 deployment initiated by CI/CD pipeline.",
+  "level": "Info"
+}
+
+### Send a warning-level notification (will be forwarded to Discord)
+POST {{NotificationsApp_HostAddress}}/api/notifications
+Content-Type: application/json
+
+{
+  "title": "High memory usage",
+  "message": "Server memory usage has exceeded 85% threshold.",
+  "level": "Warning"
+}
+
+### Send an error-level notification (will be forwarded to Discord)
+POST {{NotificationsApp_HostAddress}}/api/notifications
+Content-Type: application/json
+
+{
+  "title": "Database connection failed",
+  "message": "Unable to connect to primary database after 3 retries.",
+  "level": "Error"
+}
+
+### Send a critical-level notification (will be forwarded to Discord)
+POST {{NotificationsApp_HostAddress}}/api/notifications
+Content-Type: application/json
+
+{
+  "title": "Service down",
+  "message": "Payment processing service is unresponsive. Immediate action required.",
+  "level": "Critical"
+}
